@@ -1,0 +1,20 @@
+{
+  "name": "modbus-server",
+  "version": "1.0.0",
+  "description": "RAM-OpenHAB Modbus TCP Bridge",
+  "main": "modbus-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "NODE_ENV=development nodemon modbus-server.js",
+    "serve:8502": "SERVER_PORT=8502 NODE_ENV=development nodemon modbus-server.js",
+    "serve:production": "NODE_ENV=production node modbus-server.js"
+  },
+  "author": "stif",
+  "license": "ISC",
+  "dependencies": {
+    "modbus-stream": "^0.46.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
