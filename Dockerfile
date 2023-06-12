@@ -4,7 +4,8 @@ EXPOSE 502
 WORKDIR /modbus
 RUN mkdir -p /modbus/data
 COPY ./modbus-server.js ./package.json ./package-lock.json ./
-COPY ./data/registers.json ./data
+#COPY ./data/registers.json* ./data // fails if registers.json does not exist..
+COPY ./data/* ./data 
 RUN npm clean-install --omit=dev
 VOLUME /modbus/data
 

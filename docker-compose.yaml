@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  modbus:
+    build: .
+    container_name: modbus_server
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ}
+    volumes:
+      - ./data:/modbus/data
+    ports:
+      - "${MODBUS_PORT}:502"
+    stop_signal: SIGTERM
+    stop_grace_period: 30s
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
